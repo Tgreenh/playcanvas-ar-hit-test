@@ -126,7 +126,7 @@ export class PlayCanvasApp {
       const activate = () => {
         if (this._app.xr.isAvailable(pc.XRTYPE_AR)) {
           if (this._app.xr.domOverlay && this._app.xr.domOverlay.supported) {
-            this.app.xr.domOverlay.root = this._domOverlayElement.element;
+            this._app.xr.domOverlay.root = this._domOverlayElement.element;
 
             this._domOverlayElement.endXrCallback = () => {
               if (this._app.xr.active) {
