@@ -94,6 +94,7 @@ export class PlayCanvasApp {
 
     this.loadMesh('./duck.glb', 'd.glb', 'd').then((entity) => {
       entity.setLocalPosition(0, 0, 1);
+
       entity.setLocalScale(0.5, 0.5, 0.5);
 
       this._app.root.addChild(entity);
