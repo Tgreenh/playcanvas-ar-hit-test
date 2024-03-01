@@ -47,8 +47,8 @@ export class PlayCanvasApp {
         farClip: 10000
     });
 
-    this._camera.translate(0, 8, 8);
-    this._camera.lookAt(0, 0, 0);
+    this._camera.translate(0, 1.6, 0);
+    this._camera.lookAt(0, 1.6, -10);
 
     this._app.root.addChild(this._camera);
   }
@@ -60,13 +60,14 @@ export class PlayCanvasApp {
       range: 30,
     });
 
-    l.translate(0, 10, 0);
+    l.translate(0, 10, -3);
     this._app.root.addChild(l);
 
     const box = new pc.Entity('cube');
     box.addComponent('model', {
         type: 'box'
     });
+    box.translate(0, 0, 0);
     this._app.root.addChild(box);
 
     this._app.on('update', (dt) => {
@@ -93,7 +94,7 @@ export class PlayCanvasApp {
     // }
 
     this.loadMesh('./duck.glb', 'd.glb', 'd').then((entity) => {
-      entity.setLocalPosition(0, 0, 3);
+      entity.setLocalPosition(0, 0, -5);
 
       entity.setLocalScale(0.01, 0.01, 0.01);
 
@@ -146,7 +147,7 @@ export class PlayCanvasApp {
                   err.message
                 );
             },
-            // optionalFeatures: ['dom-overlay', 'hit-test']
+            optionalFeatures: ['dom-overlay', 'hit-test']
           });
         }
         else {
