@@ -26,7 +26,20 @@
   }
 
   set endXrCallback(callback) {
-    const endXrButton = document.querySelector('#xr-end-button');
-    endXrButton.addEventListener('click', () => callback());
+    if (!this._element) {
+      return;
+    }
+    else {
+      console.warn(`endXrCallback - element is null`);
+    }
+
+    const endXrButton = this._element.querySelector('#xr-end-button');
+
+    if (endXrButton) {
+      endXrButton.addEventListener('click', () => callback());
+    }
+    else {
+      console.warn(`endXrCallback - could not retrieve xr-end-button`);
+    }
   }
  }

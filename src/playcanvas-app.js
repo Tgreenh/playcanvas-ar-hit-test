@@ -129,11 +129,11 @@ export class PlayCanvasApp {
           if (this._app.xr.domOverlay && this._app.xr.domOverlay.supported) {
             this._app.xr.domOverlay.root = this._domOverlayElement.element;
 
-            // this._domOverlayElement.endXrCallback = () => {
-            //   if (this._app.xr.active) {
-            //     this._app.xr.end();
-            //   }
-            // };
+            this._domOverlayElement.endXrCallback = () => {
+              if (this._app.xr.active) {
+                this._app.xr.end();
+              }
+            };
           }
           else {
             console.warn('DOM overlay not supported');
